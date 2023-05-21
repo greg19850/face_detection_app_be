@@ -1,13 +1,12 @@
 const { getUser, signInUser, registerUser, addImageStats } = require('./controllers/userControllers');
 
 const express = require('express');
+const cors = require('cors');
 
 const app = express();
-app.use(express.json());
 
-// app.get('/', (req, res) => {
-//   res.status(200).send('working');
-// });
+app.use(cors());
+app.use(express.json());
 
 app.get('/profile/:id', getUser);
 app.post('/signin', signInUser);
