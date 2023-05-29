@@ -1,25 +1,4 @@
-const {addUser, fetchUser} = require("../models/appModels")
-
-const database = {
-  users: [
-    {
-      id: "0",
-      name: 'Greg',
-      email: 'greg123@gmail.com',
-      password: 'password',
-      entries: 0,
-      joined: new Date()
-    },
-    {
-      id: "1",
-      name: 'Pati',
-      email: 'patis@gmail.com',
-      password: 'password123',
-      entries: 0,
-      joined: new Date()
-    }
-  ]
-};
+const {addUser, fetchUser, fetchImage} = require("../models/appModels")
 
 exports.getUser = (req, res, next) => {
   const { id } = req.params;
@@ -56,18 +35,11 @@ exports.registerUser = (req, res, next) => {
 
 exports.addImageStats = (req, res, next) => {
   const { id } = req.body;
-  console.log(id);
-  let found = false;
-
-  database.users.forEach(user => {
-    if (user.id === id) {
-      found = true;
-      user.entries++;
-      return res.status(200).json(user);
-    }
-  });
-
-  if (!found) {
-    return res.status(404).json('user not found');
-  };
+  fetchImage(id).then(data => {
+    res.status(200).json(data[0]);
+  })
+  .catch(err =>{
+    res.status(400).json('Unable to get entries');
+  })
+  
 };

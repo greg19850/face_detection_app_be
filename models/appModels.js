@@ -28,3 +28,11 @@ return db('users')
     joined: new Date,
   })
 }
+
+
+exports.fetchImage = (id) => {
+  return db('users')
+  .where('id', '=', id)
+  .increment('entries', 1)
+  .returning('entries')
+}
