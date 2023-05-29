@@ -3,7 +3,6 @@ const { getUser, signInUser, registerUser, addImageStats } = require('./controll
 const express = require('express');
 const cors = require('cors');
 
-
 const app = express();
 
 app.use(cors());

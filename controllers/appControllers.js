@@ -1,4 +1,5 @@
-const {addUser, fetchUser, fetchImage} = require("../models/appModels")
+const {addUser, fetchUser, fetchImage, getRegisteredUser} = require("../models/appModels");
+
 
 exports.getUser = (req, res, next) => {
   const { id } = req.params;
@@ -16,17 +17,18 @@ exports.getUser = (req, res, next) => {
 };
 
 exports.signInUser = (req, res, next) => {
-  if (req.body.email === database.users[0].email && req.body.password === database.users[0].password) {
-    res.status(200).json(database.users[0]);
-  } else {
-    res.status(400).json('invalid login details');
-  }
+  const {email, password} = req.body;
+  getRegisteredUser(email, password).then(data => {
+    res.status(200).json(data[0]);
+  })
+  .catch(err =>{
+    res.status(400).json('Login details incorrect')
+  })
 };
 
 exports.registerUser = (req, res, next) => {
   const { name, email, password } = req.body;
-
-  addUser(name, email).then(user => {
+  addUser(name, email, password).then(user => {
     res.status(200).json(user[0]);
   }).catch((err) => {
     res.status(400).json('Unable to register')
