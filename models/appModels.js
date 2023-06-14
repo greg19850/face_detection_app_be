@@ -1,6 +1,6 @@
 const knex = require('knex');
 const bcrypt = require('bcrypt');
-const { json } = require('express');
+// const { json } = require('express');
 const saltRounds = 10;
 
 const db = knex({

@@ -18,6 +18,9 @@ exports.getUser = (req, res, next) => {
 
 exports.signInUser = (req, res, next) => {
   const {email, password} = req.body;
+  if(!email || !password){
+    return res.status(400).json('incorrect form data')
+  }
   getRegisteredUser(email, password).then(data => {
     res.status(200).json(data[0]);
   })
@@ -28,6 +31,9 @@ exports.signInUser = (req, res, next) => {
 
 exports.registerUser = (req, res, next) => {
   const { name, email, password } = req.body;
+  if(!name || !email || !password){
+    return res.status(400).json('incorrect form data')
+  }
   addUser(name, email, password).then(user => {
     res.status(200).json(user[0]);
   }).catch((err) => {
