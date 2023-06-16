@@ -5,10 +5,7 @@ const saltRounds = 10;
 const db = knex({
   client: 'pg',
   connection: {
-    host : '127.0.0.1',
-    user : 'postgres',
-    password : '',
-    database : 'face_app_db'
+    connectionString: process.env.DATABASE_URL
   }
 })
 
