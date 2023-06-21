@@ -1,6 +1,8 @@
+require('dotenv').config();
+
 const knex = require('knex');
 const bcrypt = require('bcrypt');
-const pool = require('../connection');
+// const pool = require('../connection');
 const saltRounds = 10;
 
 // const db = knex({
@@ -16,7 +18,10 @@ const saltRounds = 10;
 
 const db = knex({
   client: 'pg',
-  connection: pool
+  connection: {
+    host: process.env.DATABASE_URL,
+  },
+  pool: {min:0, max: 2}
 })
 
 exports.fetchUser = (id) =>{
