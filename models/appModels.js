@@ -7,7 +7,7 @@ const db = knex({
   client: 'pg',
   connection: connectionPool
   // connection: {
-  //   host: db,
+  //   host: connectionPool,
   //   user : 'postgres',
   //   password : '',
   //   database : 'face_app_db'
