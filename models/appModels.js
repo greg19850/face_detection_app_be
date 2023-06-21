@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
 require('dotenv').config({
-  path: `${__dirname}/../.env.${ENV}`,
+  path: `${__dirname}/../.env.production`,
 });
 // const db = knex({
 //   client: 'pg',
