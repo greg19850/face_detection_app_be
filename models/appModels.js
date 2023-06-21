@@ -1,19 +1,20 @@
 const knex = require('knex');
 const bcrypt = require('bcrypt');
-const connectionPool = require('../connection');
+const pool = require('../connection');
 const saltRounds = 10;
 
-const db = knex({
-  client: 'pg',
-  connection: connectionPool
-  // connection: {
-  //   host: connectionPool,
-  //   user : 'postgres',
-  //   password : '',
-  //   database : 'face_app_db'
-  // }
-})
+// const db = knex({
+//   client: 'pg',
+//   connectionString: pool
+//   // connection: {
+//   //   host: connectionPool,
+//   //   user : 'postgres',
+//   //   password : '',
+//   //   database : 'face_app_db'
+//   // }
+// })
 
+const db = knex(pool)
 
 exports.fetchUser = (id) =>{
   return db.select('*')
