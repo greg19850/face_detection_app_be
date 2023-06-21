@@ -13,7 +13,6 @@ const config =
   ENV === 'production'
     ? {
       connectionString: process.env.DATABASE_URL,
-      max: 2
       // user: process.env.DB_USER,
       // password: process.env.PASSWORD,
       // database: process.env.DB_NAME

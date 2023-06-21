@@ -6,8 +6,8 @@ const saltRounds = 10;
 
 const db = knex({
   client: 'pg',
-  connection: poolConnection
-  // pool: {min:0, max: 2}
+  connection: poolConnection,
+  pool: {min:0, max: 2}
 })
 
 db.raw("SELECT VERSION()").then(() =>{
