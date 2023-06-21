@@ -13,9 +13,9 @@ const config =
   ENV === 'production'
     ? {
       host: process.env.DATABASE_URL,
-      user: process.env.DB_USER,
-      password: process.env.PASSWORD,
-      database: process.env.DB_NAME
+      // user: process.env.DB_USER,
+      // password: process.env.PASSWORD,
+      // database: process.env.DB_NAME
     }
     : {};
 
