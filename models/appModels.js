@@ -12,7 +12,7 @@ console.log(dbConnection);
 const db = knex({
   client: 'pg',
   connection: process.env.DATABASE_URL,
-  pool: {min:0, max: 2}
+  // pool: {min:0, max: 2}
 })
 
 db.raw("SELECT VERSION()").then(() =>{
