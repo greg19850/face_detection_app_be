@@ -14,7 +14,10 @@ const saltRounds = 10;
 //   // }
 // })
 
-const db = knex(pool)
+const db = knex({
+  client: 'pg',
+  connection: pool
+})
 
 exports.fetchUser = (id) =>{
   return db.select('*')

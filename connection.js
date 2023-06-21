@@ -12,7 +12,6 @@ if (!process.env.PGDATABASE && !process.env.DATABASE_URL) {
 const config =
   ENV === 'production'
     ? {
-      client: 'pg',
       connectionString: process.env.DATABASE_URL,
       max: 2,
     }
