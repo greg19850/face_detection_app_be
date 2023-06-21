@@ -1,6 +1,6 @@
 const knex = require('knex');
 const bcrypt = require('bcrypt');
-constdbConnection = require('../connection');
+const dbConnection = require('../connection');
 const saltRounds = 10;
 
 
