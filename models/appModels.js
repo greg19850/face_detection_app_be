@@ -1,11 +1,11 @@
 const knex = require('knex');
 const bcrypt = require('bcrypt');
-const db = require('../connection');
+const connectionPool = require('../connection');
 const saltRounds = 10;
 
 const db = knex({
   client: 'pg',
-  connection: db
+  connection: connectionPool
   // connection: {
   //   host: db,
   //   user : 'postgres',
