@@ -15,7 +15,7 @@ const saltRounds = 10;
 
 const db = knex({
   client: 'pg',
-  connection: process.env.DATABASE_URL,
+  connection: "postgres://hqjawepc:yhS0P8pNyFwMnx0ugq6yklg9Dfd4a0Lk@lucky.db.elephantsql.com/hqjawepc",
   pool: {min:0, max: 2}
 })
 
