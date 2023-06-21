@@ -3,10 +3,15 @@ const bcrypt = require('bcrypt');
 const dbConnection = require('../connection');
 const saltRounds = 10;
 
+// require('dotenv').config({
+//   path: `${__dirname}/.env.production`,
+// });
+
+console.log(dbConnection);
 
 const db = knex({
   client: 'pg',
-  connection: dbConnection,
+  connection: process.env.DATABASE_URL,
   pool: {min:0, max: 2}
 })
 
