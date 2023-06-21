@@ -1,11 +1,6 @@
 const knex = require('knex');
 const bcrypt = require('bcrypt');
-// const dbConnection = require('../connection');
 const saltRounds = 10;
-
-// require('dotenv').config({
-//   path: `${__dirname}/.env.production`,
-// });
 
 
 const db = knex({
