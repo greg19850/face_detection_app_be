@@ -1,10 +1,11 @@
-require('dotenv').config();
-
 const knex = require('knex');
 const bcrypt = require('bcrypt');
 // const pool = require('../connection');
 const saltRounds = 10;
 
+require('dotenv').config({
+  path: `${__dirname}/../.env.${ENV}`,
+});
 // const db = knex({
 //   client: 'pg',
 //   connectionString: pool
