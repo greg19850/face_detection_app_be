@@ -15,4 +15,6 @@ app.post('/register', registerUser);
 app.put('/image', addImageStats);
 
 
-module.exports = app; 
+app.listen(process.env.PORT || 9090, () => {
+  console.log(`app running on port ${PORT}`);
+});
