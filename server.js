@@ -14,7 +14,8 @@ app.post('/signin', signInUser);
 app.post('/register', registerUser);
 app.put('/image', addImageStats);
 
+const PORT = process.env.PORT || 9095
 
-app.listen(process.env.PORT || 9095, () => {
-  console.log(`app running on port ${process.env.PORT}`);
+app.listen(PORT, () => {
+  console.log(`app running on port ${PORT}`);
 });

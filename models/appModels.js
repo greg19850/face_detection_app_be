@@ -11,7 +11,7 @@ console.log(dbConnection);
 
 const db = knex({
   client: 'pg',
-  host: dbConnection.connectionString
+  connection: dbConnection
 })
 
 db.raw("SELECT VERSION()").then(() =>{
