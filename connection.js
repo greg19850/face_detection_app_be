@@ -5,16 +5,17 @@ require('dotenv').config({
   path: `${__dirname}/.env.${ENV}`,
 });
 
-// if (!process.env.PGDATABASE && !process.env.DATABASE_URL) {
-//   throw new Error('PGDATABASE or DATABASE_URL not set');
-// }
+if (!process.env.PGDATABASE && !process.env.DATABASE_URL) {
+  throw new Error('PGDATABASE or DATABASE_URL not set');
+}
 
 const config =
   ENV === 'production'
     ? {
       host: process.env.DATABASE_URL,
       user: process.env.DB_USER,
-      password: process.env.PASSWORD
+      password: process.env.PASSWORD,
+      database: process.env.DB_NAME
     }
     : {};
 

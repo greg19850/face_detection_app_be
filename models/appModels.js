@@ -1,6 +1,6 @@
 const knex = require('knex');
 const bcrypt = require('bcrypt');
-const poolConnection = require('../connection');
+// const poolConnection = require('../connection');
 const saltRounds = 10;
 // const db = knex({
 //   client: 'pg',
@@ -15,7 +15,7 @@ const saltRounds = 10;
 
 const db = knex({
   client: 'pg',
-  connection: poolConnection,
+  connection: process.env.DATABASE_URL,
   pool: {min:0, max: 2}
 })
 
