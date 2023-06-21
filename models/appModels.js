@@ -1,16 +1,17 @@
 const knex = require('knex');
 const bcrypt = require('bcrypt');
-const connectionString = 'postgres://hqjawepc:yhS0P8pNyFwMnx0ugq6yklg9Dfd4a0Lk@lucky.db.elephantsql.com/hqjawepc'
+const db = require('../connection');
 const saltRounds = 10;
 
 const db = knex({
   client: 'pg',
-  connection: {
-    host: connectionString,
-    user : 'postgres',
-    password : '',
-    database : 'face_app_db'
-  }
+  connection: db
+  // connection: {
+  //   host: db,
+  //   user : 'postgres',
+  //   password : '',
+  //   database : 'face_app_db'
+  // }
 })
 
 
